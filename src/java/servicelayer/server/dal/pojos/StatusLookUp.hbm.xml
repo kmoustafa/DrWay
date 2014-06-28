@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.StatusLookUp" table="status_look_up">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="name" type="string">
+      <column length="45" name="Name" not-null="true"/>
+    </property>
+    <property name="minSpeed" type="double">
+      <column name="Min_Speed" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="maxSpeed" type="double">
+      <column name="Max_Speed" not-null="true" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

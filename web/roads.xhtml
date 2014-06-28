@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                <center><h2>All Available Roads</h2></center>
+
+<!--                <span class="bt_blue_lft"></span>
+                    <strong>
+                        <h3>Date :
+                            <p:calendar id="button"  value="" />
+                        </h3>
+                    </strong>
+                <span class="bt_blue_r"></span>-->
+                 
+                <h:form>
+                    <h:commandLink action="#{roads.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                            <strong>Add Road</strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                </h:form>
+                
+                <p:dataTable value="#{roads.roadModel}" var="rd"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit" styleClass="center_content" 
+                             paginator="true" rows="10"  sortBy="#{rd.id}" sortOrder="ASCENDING">
+                    <p:column>
+                        <f:facet name="header" class="rounded" >
+                            English Name
+                        </f:facet>
+                        <h:outputText value="#{rd.displayNameEn}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            Arabic Name
+                        </f:facet>
+                        <h:outputText value="#{rd.displayNameAr}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            Average Speed 
+                        </f:facet>
+                        <h:outputText value="#{roads.getRoadStatus(rd.id)}"/>
+                    </p:column>
+<!--                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            <h:form> Future Status
+                            <h:selectOneMenu value="">
+                               <f:selectItems value=""/>
+                            </h:selectOneMenu>
+                            </h:form>
+                        </f:facet>
+                        <img src="images/error.png" alt="" title="" border="0" width="20" height="20"/>
+                    </p:column>-->
+                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            Sub Roads</f:facet>
+                        <h:form>
+                            <h:commandLink  action="#{roads.goToSubRoads(rd.id)}" >
+                                <img src="images/user_edit.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            Update</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{roads.goToUpdate(rd.id)}" class="ask">
+                                <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">
+                            Delete</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{roads.deleteRoad()}" value="" class="ask">
+                                <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

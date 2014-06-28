@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.User" table="user">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="servicelayer.server.dal.pojos.CarListLookUp" fetch="select" name="carListLookUp">
+      <column name="Car_ID"/>
+    </many-to-one>
+    <many-to-one class="servicelayer.server.dal.pojos.FuelLookUp" fetch="select" name="fuelLookUp">
+      <column name="Fuel_Type_ID"/>
+    </many-to-one>
+    <many-to-one class="servicelayer.server.dal.pojos.ModeLookUp" fetch="select" name="modeLookUp">
+      <column name="Mode_ID"/>
+    </many-to-one>
+    <property name="name" type="string">
+      <column length="45" name="Name"/>
+    </property>
+    <property name="mobile" type="string">
+      <column length="45" name="mobile"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email"/>
+    </property>
+    <property name="userToken" type="string">
+      <column name="UserToken"/>
+    </property>
+    <property name="tokenType" type="int">
+      <column name="TokenType" not-null="true"/>
+    </property>
+    <property name="photo" type="binary">
+      <column name="Photo"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="snapshots" table="snapshot">
+      <key>
+        <column name="User_ID"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.Snapshot"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="outsideSnapShots" table="outside_snap_shot">
+      <key>
+        <column name="User_ID"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.OutsideSnapShot"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="userRoadReports" table="user_road_report">
+      <key>
+        <column name="User_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.UserRoadReport"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="dailyWinners" table="daily_winner">
+      <key>
+        <column name="User_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.DailyWinner"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="pageHitses" table="page_hits">
+      <key>
+        <column name="User_ID"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.PageHits"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="hourlyUserRecordses" table="hourly_user_records">
+      <key>
+        <column name="User_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.HourlyUserRecords"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dr_way_server?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">rana</property>
+    <mapping resource="servicelayer/server/dal/pojos/ModeLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/PageHits.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/HourlyErrorRatio.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/SubRoute.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/SubRoad.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Roles.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/DailyErrorRatio.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/History.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Prediction.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Road.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/BlockedUser.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/FuelLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Privileges.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/CarListLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/CurrentVersion.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/OutsideSnapShot.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/StatusLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/DailyWinner.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/PendingUser.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/UserRoadReport.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Admin.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/MainPoint.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/AdminRoadReport.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Route.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/User.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/DateLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/Snapshot.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/ReportTypeLookUp.hbm.xml"/>
+    <mapping resource="servicelayer/server/dal/pojos/HourlyUserRecords.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

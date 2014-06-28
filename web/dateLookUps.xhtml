@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="templates/MasterLayout.xhtml">
+             <ui:define name="center_content">
+                 <center><h1>Date LookUp</h1></center>
+                 
+                <h:form>
+                    <h:commandLink action="#{dates.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                            <strong>Add Date </strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                </h:form>
+                 
+                 <p:dataTable value="#{dates.dateLookUpModel}" var="date" styleClass="center_content"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit" 
+                             paginator="true" rows="10" sortBy="#{rpt.reportTypeId}" sortOrder="ASCENDING">
+                    
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Day Name</f:facet>
+                        <h:outputText value="#{date.dayName}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Milady Day </f:facet>
+                        <h:outputText value="#{date.mday}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Milady Month </f:facet>
+                        <h:outputText value="#{date.mmonth}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Milady Year </f:facet>
+                        <h:outputText value="#{date.myear}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Hijry Day </f:facet>
+                        <h:outputText value="#{date.hday}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Hijry Month </f:facet>
+                        <h:outputText value="#{date.hmonth}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Hijry Year </f:facet>
+                        <h:outputText value="#{date.hyear}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded">Update</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{dates.goToUpdate(date.id)}">
+                            <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{dates.deletedateType()}" value="" class="ask">
+                                <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                </p:dataTable>
+             </ui:define>
+         </ui:composition>
+    </h:body>
+</html>
+

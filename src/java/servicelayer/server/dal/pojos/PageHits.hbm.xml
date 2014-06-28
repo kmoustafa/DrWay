@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.PageHits" table="page_hits">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="servicelayer.server.dal.pojos.User" fetch="select" name="user">
+      <column name="User_ID"/>
+    </many-to-one>
+    <property name="pageName" type="string">
+      <column length="45" name="Page_Name" not-null="true"/>
+    </property>
+    <property name="appVerId" type="string">
+      <column length="45" name="App_Ver_ID"/>
+    </property>
+    <property name="osId" type="string">
+      <column length="45" name="OS_ID"/>
+    </property>
+    <property name="imie" type="string">
+      <column length="45" name="IMIE"/>
+    </property>
+  </class>
+</hibernate-mapping>

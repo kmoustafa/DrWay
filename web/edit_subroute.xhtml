@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <meta>
+        <param name="currentSubRoute.roadName" value="#{subroutes.parentRoadName}"/>
+    </meta>
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                <center><h2>Update SubRoute</h2></center>
+                
+                   <h:form  id="add-road" class="niceform">
+                        <fieldset>
+                             <dl>
+                                <dt><label for="email">Parent Route</label></dt>
+                                <dd>
+                                   <h:inputText value="#{subroutes.currentRoute.name}" />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><label>Update Road</label></dt>
+                                <dd>
+                                    <h:selectOneMenu  value="#{subroutes.parentRoadName}" >
+                                        <f:selectItems value="#{roads.roadNamesList}" />
+                                     </h:selectOneMenu> 
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><label>Order : </label></dt>
+                                <dd><h:inputText value="#{subroutes.currentSubRoute.orderr}" id="order" required="true"  /></dd>
+                            </dl>
+                            <dl class="submit">
+                                <h:commandButton value="Update" action="#{subroutes.updateSubRoute()}"/>
+                            </dl>
+                        </fieldset>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

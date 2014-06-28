@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="templates/MasterLayout.xhtml">
+             <ui:define name="center_content">
+                 <h:form prependId="false">
+                 <p:dataTable value="#{users.userModel}" var="user"
+                              id="rounded-corner" summary="2007 Major IT Companies' Profit" styleClass="center_content"
+                             paginator="true" rows="10" sortBy="#{user.id}" sortOrder="ASCENDING">
+                    <p:column>
+                        <f:facet name="header" class="rounded"> User ID </f:facet>
+                        <h:outputText value="#{user.id}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> User Name </f:facet>
+                        <h:outputText value="#{user.name}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> User Email </f:facet>
+                        <h:outputText value="#{user.email}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> User Mode </f:facet>
+                        <h:outputText value="#{user.modeLookUp.modeValue}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Car Type </f:facet>
+                        <h:outputText value="#{user.carListLookUp.carValue}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded"> Fuel Type </f:facet>
+                        <h:outputText value="#{user.fuelLookUp.model}"/>
+                    </p:column>
+                     <p:poll interval="3"  listener="#{users.restore()}" update="rounded-corner"/>
+                </p:dataTable>
+                      </h:form>
+             </ui:define>
+         </ui:composition>
+    </h:body>
+</html>
+

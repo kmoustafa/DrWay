@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.Road" table="road">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column name="Name" unique="true"/>
+    </property>
+    <property name="displayNameAr" type="string">
+      <column name="Display_Name_Ar"/>
+    </property>
+    <property name="displayNameEn" type="string">
+      <column name="Display_Name_En"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="subRoutes" table="sub_route">
+      <key>
+        <column name="Road_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.SubRoute"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="subRoads" table="sub_road">
+      <key>
+        <column name="Parent_Road_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.SubRoad"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="userRoadReports" table="user_road_report">
+      <key>
+        <column name="Road_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.UserRoadReport"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="adminRoadReports" table="admin_road_report">
+      <key>
+        <column name="Road_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.AdminRoadReport"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.History" table="history">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="servicelayer.server.dal.pojos.DateLookUp" fetch="select" name="dateLookUp">
+      <column name="Date_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="servicelayer.server.dal.pojos.SubRoad" fetch="select" name="subRoad">
+      <column name="Sub_Road_ID" not-null="true"/>
+    </many-to-one>
+    <property name="avgSpeed00" type="java.lang.Double">
+      <column name="avg_speed_00" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed01" type="java.lang.Double">
+      <column name="avg_speed_01" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed02" type="java.lang.Double">
+      <column name="avg_speed_02" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed03" type="java.lang.Double">
+      <column name="avg_speed_03" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed04" type="java.lang.Double">
+      <column name="avg_speed_04" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed05" type="java.lang.Double">
+      <column name="avg_speed_05" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed06" type="java.lang.Double">
+      <column name="avg_speed_06" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed07" type="java.lang.Double">
+      <column name="avg_speed_07" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed08" type="java.lang.Double">
+      <column name="avg_speed_08" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed09" type="java.lang.Double">
+      <column name="avg_speed_09" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed10" type="java.lang.Double">
+      <column name="avg_speed_10" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed11" type="java.lang.Double">
+      <column name="avg_speed_11" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed12" type="java.lang.Double">
+      <column name="avg_speed_12" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed13" type="java.lang.Double">
+      <column name="avg_speed_13" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed14" type="java.lang.Double">
+      <column name="avg_speed_14" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed15" type="java.lang.Double">
+      <column name="avg_speed_15" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed16" type="java.lang.Double">
+      <column name="avg_speed_16" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed17" type="java.lang.Double">
+      <column name="avg_speed_17" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed18" type="java.lang.Double">
+      <column name="avg_speed_18" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed19" type="java.lang.Double">
+      <column name="avg_speed_19" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed20" type="java.lang.Double">
+      <column name="avg_speed_20" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed21" type="java.lang.Double">
+      <column name="avg_speed_21" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed22" type="java.lang.Double">
+      <column name="avg_speed_22" precision="22" scale="0"/>
+    </property>
+    <property name="avgSpeed23" type="java.lang.Double">
+      <column name="avg_speed_23" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+
+                <center><h2>SubRoads of #{subroads.currentRoad.name}</h2></center>
+
+                <h:form>
+                    <h:commandLink action="#{subroads.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                        <strong>Add SubRoad</strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                </h:form>
+                <p:dataTable value="#{subroads.subroadModel}" var="srd"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit" 
+                             paginator="true" rows="10" styleClass="center_content" sortBy="#{srd.id}" sortOrder="ASCENDING">
+                    
+                    <p:column>
+                        <f:facet name="header" class="rounded">Parent Road Name</f:facet>
+                        <h:outputText value="#{srd.road.name}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Order In Road</f:facet>
+                        <h:outputText value="#{srd.orderInRoad}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Distance</f:facet>
+                        <h:outputText value="#{srd.distance}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Current Speed</f:facet>
+                        <h:outputText value="#{srd.currentSpeed}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Update</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{subroads.goToUpdate(srd.id)}">
+                            <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{subroads.deleteSubRoad()}" class="ask">
+                            <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

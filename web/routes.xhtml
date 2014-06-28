@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                
+                <center><h2>All Available Routes</h2></center>
+
+                <h:form >
+                    <h:commandLink action="#{routes.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                            <strong>Add Route</strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                
+                
+                
+                <p:dataTable value="#{routes.routeModel}" var="rt"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit" styleClass="center_content"
+                             paginator="true" rows="10" sortBy="#{rt.id}" sortOrder="ASCENDING">
+                    <p:column>
+                        <f:facet name="header" class="rounded">English Name </f:facet>
+                        <h:outputText value="#{rt.displayNameEn}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Arabic Name </f:facet>
+                        <h:outputText value="#{rt.displayNameAr}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> From </f:facet>
+                        <h:outputText value="#{rt.mainPointBySrcId.name}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> To </f:facet>
+                        <h:outputText value="#{rt.mainPointByDestId.name}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Sub Routes</f:facet>
+<!--                        <h:form>-->
+                            <h:commandLink  action="#{routes.goToSubRoutes(rt.id)}" >
+<!--                                <param name="currentRoutId" value="#"/>-->
+                                <img src="images/user_edit.png" alt="" title="" border="0" />
+                            </h:commandLink>
+<!--                        </h:form>-->
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Update</f:facet>
+<!--                        <h:form>-->
+                            <h:commandLink action="#{routes.goToUpdate(rt.id,rt.mainPointBySrcId.name,rt.mainPointByDestId.name)}" class="ask">
+<!--                                <param name="sourceName" value=""/>
+                                <param name="destName" value=""/>-->
+                                <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+<!--                        </h:form>-->
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+<!--                        <h:form>-->
+                            <h:commandLink action="#{routes.deleteRoute()}" value="" class="ask" >
+                                <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+<!--                        </h:form>-->
+                    </p:column>
+<!--                    <p:summaryRow>
+                        <f:facet name="header" class="rounded">
+                            <p:column colspan="2" style="text-align:left">
+                                <h:outputText value="Total Number of Roads:" />
+                            </p:column>
+                            <p:column colspan="5" style="text-align:left">
+                                <h:outputText  value="">
+                                    <f:convertNumber type="number" />
+                                </h:outputText>
+                            </p:column>
+                        </f:facet>
+                    </p:summaryRow>-->
+                    
+                </p:dataTable>
+<!--                    <p:poll interval="5" listener="" update="rounded-corner"/>-->
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

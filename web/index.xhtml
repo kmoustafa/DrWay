@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+        <link href="css/login_style.css" rel="stylesheet" type="text/css" media="all" />
+    </h:head>
+    <h:body>
+        <center>
+            <h1>Smart Traffic Control System</h1>
+        </center>
+        <br/>
+           <div class="login">
+                <h:form>
+                <span><h:outputText id="out" /></span>
+                <center><h1>Administrator Login</h1></center>
+                <span><label>User Name : </label></span>
+                <span><h:inputText id="userName" class="name" required="true"  value="#{admin.username}"/></span>
+                <span><label>Password : </label></span>
+                <span><h:inputSecret id="password" class="name" required="true" value="#{admin.password}" /></span>
+                <h:commandButton class="btn" type="submit" value="Login" action="#{admin.adminLogin()}" />
+                </h:form>
+                
+           </div>
+
+</h:body>
+</html>
+

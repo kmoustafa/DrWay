@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets" >
+    <center>
+    <ul>
+        <li><h:link outcome="mainpoints"> Main Points </h:link></li>
+        <li><h:link outcome="roads"> Roads </h:link></li>
+        <li><h:link outcome="routes"> Routes </h:link></li>
+        <li><a href="#"> Reports </a>
+
+            <ul>
+                <li><h:link outcome="admin_reports" title=""> Admins Reports </h:link></li>
+                <li><h:link outcome="user_reports" title=""> Users Reports </h:link></li>
+            </ul>
+            
+        </li>
+        <li>
+            <ul>
+                <li><h:link outcome="activeUsers" title=""> Active Users </h:link></li>
+                <li><h:link outcome="pendingUsers" title=""> Pending Users </h:link></li>
+                <li><h:link outcome="blockedUsers" title=""> Blocked Users </h:link></li>
+                <li><h:link outcome="winners" title=""> Winners </h:link></li>
+            </ul>
+            
+        </li>
+        <li><a href=""> Lookups </a>
+            <ul>
+                <li><h:link outcome="modeLookups" title="">Mode Lookup</h:link></li>
+                <li><h:link outcome="fuelTypeLookUps" title="">Fuel Lookup</h:link></li>
+                <li><h:link outcome="carListLookUps" title="">Car List Lookup</h:link></li>
+
+                <li><h:link outcome="reportTypeLookUps" title="">Report Type Lookup</h:link></li>
+                <li><h:link outcome="dateLookUps" title="">Date Lookup</h:link></li>
+            </ul>
+        </li>
+        
+        <li><h:link outcome="manage_admins"> Manage Admins </h:link></li>
+        <li><h:link outcome="system_errors"> System Errors </h:link></li>
+        
+        <li><h:link outcome="contact_system_admin"> Contact System Administrator </h:link></li>
+    </ul>
+    </center>
+</ui:composition>

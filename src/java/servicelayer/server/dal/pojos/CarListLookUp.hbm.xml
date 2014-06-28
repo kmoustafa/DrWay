@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.CarListLookUp" table="car_list_look_up">
+    <id name="carId" type="java.lang.Integer">
+      <column name="Car_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="carValue" type="string">
+      <column length="100" name="Car_Value" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="users" table="user">
+      <key>
+        <column name="Car_ID"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.User"/>
+    </set>
+  </class>
+</hibernate-mapping>

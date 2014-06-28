@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.Roles" table="roles">
+    <id name="roleId" type="java.lang.Integer">
+      <column name="Role_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="roleName" type="string">
+      <column length="100" name="Role_Name" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="admins" table="admin">
+      <key>
+        <column name="Role_ID"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.Admin"/>
+    </set>
+    <set fetch="select" inverse="false" lazy="true" name="privilegeses" table="roles_has_privileges">
+      <key>
+        <column name="Role_ID" not-null="true"/>
+      </key>
+      <many-to-many entity-name="servicelayer.server.dal.pojos.Privileges">
+        <column name="Privileges_ID" not-null="true"/>
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                <center><h2>Add Main Point</h2></center>
+                
+                   <h:form  id="add-main-point" class="niceform">
+                        <fieldset>
+                            <dl>
+                                <dt><label for="email">NAME</label></dt>
+                                <dd><h:inputText value="#{mainPoints.currentMainPoint.name}" id="name" required="true"  size="54" />  </dd>
+                            </dl>
+                            <dl>
+                                <dt> <label>English Display Name</label></dt>
+                                <dd><h:inputText value="#{mainPoints.currentMainPoint.displayNameEn}" id="en-name" required="true" size="54" /></dd>
+                            </dl>
+                            <dl>
+                                <dt><label>Arabic Display Name</label></dt>
+                                <dd><h:inputText value="#{mainPoints.currentMainPoint.displayNameAr}" id="ar-name" required="true" size="54" /></dd>
+                            </dl>
+                            <dl>
+                                <dt><label>X : </label></dt>
+                                <dd><h:inputText value="#{mainPoints.currentMainPoint.x}" id="x" required="true"  /></dd>
+                            </dl>
+                            <dl>
+                                <dt><label>Y : </label></dt>
+                                <dd><h:inputText value="#{mainPoints.currentMainPoint.y}" id="y" required="true"  /></dd>
+                            </dl>
+                            <dl class="submit">
+                                <h:commandButton value="Add" action="#{mainPoints.addMainPoint()}" />
+                            </dl>
+                        </fieldset>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:metadata>
+        <f:viewParam name="routeId" value="#{routeDetails.routeId}"/>
+    </f:metadata>
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                <center><h2>Update Route</h2></center>
+                
+                   <h:form  id="add-route" class="niceform">
+                        <fieldset>
+                            <dl>
+                                <dt><label> Source ID : </label></dt>
+                                 <dd>
+                                     <h:selectOneMenu value="#{routes.sourceName}">
+                                         <f:selectItems value="#{mainPoints.mainPointListNames}"/>
+                                     </h:selectOneMenu>
+                                 </dd>
+                            </dl>
+                            <dl>
+                                <dt><label> Destination ID : </label></dt>
+                                 <dd>
+                                     <h:selectOneMenu value="#{routes.destName}">
+                                         <f:selectItems value="#{mainPoints.mainPointListNames}"/>
+                                     </h:selectOneMenu>
+                                 </dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="name">NAME :</label></dt>
+                                <dd>
+                                    <p:inputText value="#{routes.currentRoute.name}" id="name" size="54"
+                                                 required="true" requiredMessage="Route Name is Required"  label="Name" 
+                                                 validatorMessage="Name is not Valid" maxlength="50">
+                                        <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                    </p:inputText>
+                                </dd>
+                                <dd> <p:message for="name" /></dd>
+                            </dl>
+                            <dl>
+                                <dt> <label>English Display Name</label></dt>
+                                <dd>
+                                    <p:inputText value="#{routes.currentRoute.displayNameEn}" id="en-name" size="54" 
+                                                 required="true" requiredMessage="English Name is Required" label="Name" 
+                                                 validatorMessage="Englis Name is not Valid" maxlength="50">
+                                        <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                    </p:inputText>
+                                </dd>
+                                <dd> <p:message for="en-name" /></dd>
+                            </dl>
+                            <dl>
+                                <dt><label>Arabic Display Name</label></dt>
+                                <dd><p:inputText value="#{routes.currentRoute.displayNameAr}" id="ar-name"  size="54" 
+                                                 required="true" requiredMessage="Arabic Name is Required" label="Name" 
+                                                 validatorMessage="Arabic Name is not Valid" maxlength="50">
+<!--                                        <f:validateRegex pattern=""/>-->
+                                    </p:inputText>
+                                </dd>
+                                <dd> <p:message for="ar-name" /></dd>
+                            </dl>
+                            <dl class="submit">
+                                <h:commandButton value="Update" action="#{routes.updateRoute()}"/>
+                            </dl>
+                        </fieldset>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

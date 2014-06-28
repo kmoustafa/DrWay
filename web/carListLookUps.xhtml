@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="templates/MasterLayout.xhtml">
+             <ui:define name="center_content">
+                 <center><h1>Car Type LookUp</h1></center>
+                 
+                <h:form>
+                    <h:commandLink action="#{cars.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                            <strong>Add Car Type</strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                </h:form>
+                 
+                 <p:dataTable value="#{cars.carListLookUpModel}" var="car" styleClass="center_content"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit"
+                             paginator="true" rows="10" sortBy="#{car.carId}" sortOrder="ASCENDING">
+                    
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Car ID </f:facet>
+                        <h:outputText value="#{car.carId}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Car Type </f:facet>
+                        <h:outputText value="#{car.carValue}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded">Update</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{cars.goToUpdate(car.carId)}">
+                            <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{cars.deletecarListType()}" value="" class="ask">
+                                <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                </p:dataTable>
+             </ui:define>
+         </ui:composition>
+    </h:body>
+</html>
+

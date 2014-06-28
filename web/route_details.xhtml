@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/MasterLayout.xhtml">
+            <ui:define name="center_content">
+                
+<center><h2>Sub Routes from #{subroute.currentRoute.mainPointBySrcId.name} to #{subroute.currentRoute.mainPointByDestId.name}</h2></center>
+
+                <a href="add_road.xhtml" class="bt_blue"><span class="bt_blue_lft"></span><strong>Add SubRoad</strong><span class="bt_green_r"></span></a>
+          
+                <h:dataTable value="#{subroute.subrouteModel}" var="srt"
+                             id="rounded-corner" summary="2007 Major IT Companies' Profit">
+                    <h:column>
+                        <f:facet name="header" class="rounded"> Select </f:facet>
+                        <input type="checkbox" name="" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">ID</f:facet>
+                        <h:outputText value="#{srt.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">Route ID</f:facet>
+                        <h:outputText value="#{srt.route.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">Sub Road ID</f:facet>
+                        <h:outputText value="#{srt.subRoad.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">Order</f:facet>
+                        <h:outputText value="#{srt.order}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">Details</f:facet>
+                        <a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+                        <a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a>
+                    </h:column>
+
+                </h:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

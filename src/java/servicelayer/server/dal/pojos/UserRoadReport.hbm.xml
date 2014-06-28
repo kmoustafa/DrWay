@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.UserRoadReport" table="user_road_report">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="servicelayer.server.dal.pojos.User" fetch="select" name="user">
+      <column name="User_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="servicelayer.server.dal.pojos.Road" fetch="select" name="road">
+      <column name="Road_ID" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="servicelayer.server.dal.pojos.ReportTypeLookUp" fetch="select" name="reportTypeLookUp">
+      <column name="Report_Type_ID" not-null="true"/>
+    </many-to-one>
+    <property name="timeStamp" type="timestamp">
+      <column length="19" name="Time_Stamp"/>
+    </property>
+  </class>
+</hibernate-mapping>

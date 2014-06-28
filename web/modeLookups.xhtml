@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="templates/MasterLayout.xhtml">
+             <ui:define name="center_content">
+                 <center><h1>Mode Type LookUp</h1></center>
+                 
+                <h:form>
+                    <h:commandLink action="#{modes.goToAdd()}" class="bt_blue">
+                        <span class="bt_blue_lft"></span>
+                            <strong>Add Mode Type</strong>
+                        <span class="bt_blue_r"></span>
+                    </h:commandLink>
+                </h:form>
+                 
+                 <p:dataTable value="#{modes.modeLookUpModel}" var="mode"
+                              id="rounded-corner" summary="2007 Major IT Companies' Profit" styleClass="center_content"
+                             paginator="true" rows="10" sortBy="#{mode.modeId}" sortOrder="ASCENDING">
+                    
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Mode Type ID </f:facet>
+                        <h:outputText value="#{mode.modeId}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded"> Mode Type Value </f:facet>
+                        <h:outputText value="#{mode.modeValue}"/>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header" class="rounded">Update</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{modes.goToUpdate(mode.modeId)}">
+                            <img src="images/plus.gif" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header" class="rounded">Delete</f:facet>
+                        <h:form>
+                            <h:commandLink action="#{modes.deletemodeType()}" value="" class="ask">
+                                <img src="images/trash.png" alt="" title="" border="0" />
+                            </h:commandLink>
+                        </h:form>
+                    </p:column>
+                </p:dataTable>
+             </ui:define>
+         </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Smart Traffic Detector</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="templates/MasterLayout.xhtml">
+             <ui:define name="center_content">
+                 <center><h2>Add Mode Lookup</h2></center>
+                 <h:form  id="add-report-type-lookup" class="niceform">
+                        <fieldset>
+                            <dl>
+                                <dt><label for="email">Mode Type ID</label></dt>
+                                <dd><h:inputText value="#{modes.modeLookUp.modeId}" id="mode-id" required="true"  size="54" />  </dd>
+                            </dl>
+                            <dl>
+                                <dt> <label>Mode Type Value</label></dt>
+                                <dd><h:inputText value="#{modes.modeLookUp.modeValue}" id="mode-value" required="true" size="54" /></dd>
+                            </dl>
+                            <dl class="submit">
+                                <h:commandButton value="Add" action="#{modes.addModeType()}" />
+                            </dl>
+                        </fieldset>
+                 </h:form>
+             </ui:define>
+         </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2014 10:23:43 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="dr_way_server" name="servicelayer.server.dal.pojos.MainPoint" table="main_point">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column length="100" name="Name"/>
+    </property>
+    <property name="displayNameAr" type="string">
+      <column length="100" name="Display_Name_Ar"/>
+    </property>
+    <property name="displayNameEn" type="string">
+      <column length="100" name="Display_Name_En"/>
+    </property>
+    <property name="imgUrl" type="string">
+      <column name="Img_Url"/>
+    </property>
+    <property name="x" type="double">
+      <column name="X" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="y" type="double">
+      <column name="Y" not-null="true" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="routesForDestId" table="route">
+      <key>
+        <column name="Dest_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.Route"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="routesForSrcId" table="route">
+      <key>
+        <column name="Src_ID" not-null="true"/>
+      </key>
+      <one-to-many class="servicelayer.server.dal.pojos.Route"/>
+    </set>
+  </class>
+</hibernate-mapping>
